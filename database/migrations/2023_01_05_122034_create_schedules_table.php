@@ -21,6 +21,7 @@ class CreateSchedulesTable extends Migration
             $table->date('she_dat');
             $table->boolean('shi_status',200)->default(1)->comment('Status(1-Active,0-Innactive)');
 
+            $table->foreign('emp_id')->references('emp_id')->on('employees')->onDelete('restrict')->onUpdate('cascade');
             $table->foreign('loc_id')->references('loc_id')->on('locations')->onDelete('restrict')->onUpdate('cascade');
             $table->foreign('shi_id')->references('shi_id')->on('shifts')->onDelete('restrict')->onUpdate('cascade');
         });

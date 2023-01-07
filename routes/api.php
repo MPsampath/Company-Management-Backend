@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/uploadfile', [AttendanceService::class, 'inputData']);
+Route::get('/getsheduledata', [AttendanceService::class, 'getHomeData']);
