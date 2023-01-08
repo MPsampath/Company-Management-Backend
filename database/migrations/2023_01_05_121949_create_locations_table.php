@@ -16,7 +16,7 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->smallIncrements('loc_id');
             $table->string('loc_nam',200);
-            $table->boolean('loc_status',200)->default(1)->comment('Status(1-Active,0-Innactive)');
+            $table->boolean('loc_status')->default(1)->comment('Status(1-Active,0-Innactive)');
         });
     }
 

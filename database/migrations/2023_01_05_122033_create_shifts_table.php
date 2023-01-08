@@ -17,7 +17,7 @@ class CreateShiftsTable extends Migration
             $table->smallIncrements('shi_id');
             $table->time('strt_time');
             $table->time('end_time');
-            $table->boolean('shi_status',200)->default(1)->comment('Status(1-Active,0-Innactive)');
+            $table->boolean('shi_status')->default(1)->comment('Status(1-Active,0-Innactive)');
         });
     }
 
