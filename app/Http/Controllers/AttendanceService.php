@@ -19,10 +19,10 @@ class AttendanceService extends Controller
 {
 
     public static function getHomeData(){
-        $data = Schedule::selectRaw('schedules.sch_id, b.time, a.emp_nam, d.atd_id, d.sts AS attend, e.fult_des')
+        $data = Schedule::selectRaw('schedules.sch_id, b.time, b.strt_time, b.end_time, a.emp_nam, d.atd_id, d.sts AS attend, e.fult_des')
                             ->leftjoin('employees AS a','a.emp_id','schedules.emp_id')
                             ->leftjoin('locations AS b','b.loc_id','schedules.loc_id')
-                            ->leftjoin(DB::raw('(SELECT TIMEDIFF(a.strt_time ,a.end_time) AS time, a.shi_id FROM `shifts` AS a) AS b'),'b.shi_id','schedules.shi_id')
+                            ->leftjoin(DB::raw('(SELECT TIMEDIFF(a.end_time,a.strt_time ) AS time, a.shi_id, a.strt_time, a.end_time FROM `shifts` AS a) AS b'),'b.shi_id','schedules.shi_id')
                             ->leftjoin('attendances AS d','d.sch_id','schedules.sch_id')
                             ->leftjoin('attendance_faults AS e','e.atd_id','d.atd_id')
                             ->get();
