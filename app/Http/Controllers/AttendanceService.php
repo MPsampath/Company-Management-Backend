@@ -130,6 +130,7 @@ class AttendanceService extends Controller
             $attendtable->sch_id = $shedulTable->sch_id;
             $attendtable->emp_id = $emp_id;
             $attendtable->atd_dat = $val->atd_dat;
+            $attendtable->sts = 1;
             if(!$attendtable->save()){
                 throw new Exception('New Attendence');
             }
