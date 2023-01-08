@@ -19,7 +19,7 @@ class CreateSchedulesTable extends Migration
             $table->smallInteger('loc_id')->unsigned()->index();
             $table->smallInteger('shi_id')->unsigned()->index();
             $table->date('she_dat');
-            $table->boolean('shi_status',200)->default(1)->comment('Status(1-Active,0-Innactive)');
+            $table->boolean('shi_status')->default(1)->comment('Status(1-Active,0-Innactive)');
 
             $table->foreign('emp_id')->references('emp_id')->on('employees')->onDelete('restrict')->onUpdate('cascade');
             $table->foreign('loc_id')->references('loc_id')->on('locations')->onDelete('restrict')->onUpdate('cascade');

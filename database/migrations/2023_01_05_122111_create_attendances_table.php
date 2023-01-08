@@ -18,6 +18,8 @@ class CreateAttendancesTable extends Migration
             $table->integer('sch_id')->unsigned()->index();
             $table->integer('emp_id')->unsigned()->index();
             $table->date('atd_dat');
+            $table->boolean('sts')->default(1)->comment('Status(1-Active,0-Innactive)');
+
 
             $table->foreign('sch_id')->references('sch_id')->on('schedules')->onDelete('restrict')->onUpdate('cascade');
             $table->foreign('emp_id')->references('emp_id')->on('employees')->onDelete('restrict')->onUpdate('cascade');
